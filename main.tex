@@ -1,0 +1,24 @@
+\input{filecontents} % файл со списком источников biber
+\input{preamble} % файл со всей преамбулой
+
+
+\author{Мамонтов Иван, Т12О-402Б-20}
+\begin{document}
+	\includepdf{inc/pdf/титульный лист.pdf} % титульный лист
+	
+	\include{1.annotation} % аннотация
+	
+	\tableofcontents % содержание
+	
+	\include{2.terms} % термины и определения
+	
+	\include{3.intro} % введение
+	
+	\include{4.maintext} % основная часть
+	
+	\include{5.conclusion} % заключение
+	
+	\include{6.cites} % список использованных источников
+	
+	\include{7.includes} % приложения
+\end{document}

@@ -1,0 +1,28 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[4] Config.pm:310> INFO - Logfile is 'main.blg'
+[186] biber-MSWIN64:340> INFO - === 
+[339] Biber.pm:419> INFO - Reading 'main.bcf'
+[616] Biber.pm:979> INFO - Found 2 citekeys in bib section 0
+[663] Biber.pm:4419> INFO - Processing section 0
+[681] Biber.pm:4610> INFO - Looking for bibtex file 'main.bib' for section 0
+[847] bibtex.pm:1713> INFO - LaTeX decoding ...
+[856] bibtex.pm:1519> INFO - Found BibTeX data source 'main.bib'
+[918] UCollate.pm:68> INFO - Overriding locale 'ru-RU' defaults 'variable = shifted' with 'variable = non-ignorable'
+[919] UCollate.pm:68> INFO - Overriding locale 'ru-RU' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[919] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'ru-RU'
+[919] Biber.pm:4245> INFO - No sort tailoring available for locale 'ru-RU'
+[923] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[928] bbl.pm:763> INFO - Output to main.bbl
+[929] Biber.pm:131> WARN - Field 'heading' in sorting template is not a sortable field
+[929] Biber.pm:131> WARN - Field 'sortvolume' in sorting template is not a sortable field
+[930] Biber.pm:131> WARN - Field 'internalsortvolume' in sorting template is not a sortable field
+[930] Biber.pm:131> WARN - Field 'internalsortbook' in sorting template is not a sortable field
+[930] Biber.pm:131> WARN - Field 'internalsortpart' in sorting template is not a sortable field
+[930] Biber.pm:131> WARN - Field 'internalsortissue' in sorting template is not a sortable field
+[930] Biber.pm:131> WARN - Field 'heading' in sorting template is not a sortable field
+[931] Biber.pm:131> WARN - Field 'sortvolume' in sorting template is not a sortable field
+[931] Biber.pm:131> WARN - Field 'internalsortvolume' in sorting template is not a sortable field
+[931] Biber.pm:131> WARN - Field 'internalsortbook' in sorting template is not a sortable field
+[931] Biber.pm:131> WARN - Field 'internalsortpart' in sorting template is not a sortable field
+[932] Biber.pm:131> WARN - Field 'internalsortissue' in sorting template is not a sortable field
+[932] Biber.pm:133> INFO - WARNINGS: 12

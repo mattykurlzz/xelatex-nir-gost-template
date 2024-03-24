@@ -1,0 +1,97 @@
+%------------------ настройки шрифтов и геометрии листа -------------------------------
+\documentclass[12pt]{article} % шрифт и формат документа
+\usepackage[a4paper, left=30mm, right=10mm, top=20mm, bottom=20mm]{geometry} % отступы от края листа
+\usepackage{fontspec} % шрифт таймс
+\usepackage{polyglossia}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{lipsum} % для генерации dummy текста
+\usepackage{pdfpages} %  для вставки ПДФ
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage[labelsep=endash, font={normalsize, stretch=1}, justification=centering]{caption}
+\usepackage[titles]{tocloft}
+\usepackage{titlesec} % для контроля над заголовками
+\bibliographystyle{gost-numeric.bbx}
+\usepackage[parentracker=true,
+backend=biber,
+hyperref=false,
+bibencoding=utf8,
+style=numeric-comp,
+language=auto,
+autolang=other,
+citestyle=gost-numeric,
+defernumbers=true,
+bibstyle=gost-numeric,
+%sorting=none, %эти два пакета почему-то ломают библиографию
+]{biblatex}
+
+\setmainlanguage{russian}
+\setmainfont[]{Times New Roman}
+\renewcommand{\baselinestretch}{1.5} % межстрочный интервал 1.5 (1.6 потому что шрифты )
+\setlength\parindent{1.25cm} % абзацный отступ
+
+%------------------ настройка списков и подписей ----------------------------------------
+
+\setlist[enumerate]{label*=\arabic*., leftmargin=(\parindent+16pt), itemsep={0cm}, parsep={0cm}} % пакет для нормальных списков с подпунктами и абзацным отступом
+\setlength\parsep{0cm}
+\setlength\itemsep{-1cm}
+% почему-то настройка слагаемых leftmargin не работает, поэтому подход кривой 
+
+%\addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
+\captionsrussian{\renewcommand{\figurename}{Рисунок}}
+
+\captionsetup[table]{justification=RaggedRight, position=top, singlelinecheck=off}
+%------------------ настройки ToC -------------------------------------------------------
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % точки в содержании
+\AtBeginDocument{\renewcommand\contentsname{}}
+\addto\captionsrussian{\renewcommand{\contentsname}{\hfill Содержание \hfill}} % Меняю подпись к содержанию (так лучше чем с секцией)
+
+\renewcommand{\cftsecfont}{} % шрифт содержания
+\renewcommand{\cftsecpagefont}{}
+%\renewcommand{\cftsubsecfont}{\normalfont}
+
+\setlength\cftbeforesecskip{0pt}
+
+%------------------- настройки заголовков----------------------------------------------
+
+\newcommand{\sectionbreak}{\clearpage} % перенос на новую страницу \section
+\let\oldsection\section 
+\renewcommand\section{\clearpage\oldsection} % перенос на новую страницу структурных элементов \section*
+
+\titleformat{\subsection} % меняю начертание подзаголовка
+{\normalfont\bfseries\Large}{\thesubsection}{1em}{}
+\titlespacing*{\subsection}{\parindent}{1ex}{1em}
+\titleformat{\section} % меняю начертание подзаголовка
+{\normalfont\bfseries\Large}{\thesection}{1em}{}
+\titlespacing*{\section}{\parindent}{1ex}{1em}
+
+%------------------- кастомные секции для стркутрных элементов -----------------------
+\makeatletter
+\newcommand\@csection{\@startsection {section}{1}{\z@}%
+	{-3.5ex \@plus -1ex \@minus -.2ex}%
+	{2.3ex \@plus.2ex}%
+	{\normalfont\Large\bfseries\centering}}
+\newcommand{\csection}[1]{%
+	\clearpage
+	\@csection*{#1}%
+	\addcontentsline{toc}{section}{#1}%
+}
+\makeatother
+
+\makeatletter
+\newcommand\@csubsection{\@startsection {section}{1}{\z@}%
+	{-3.5ex \@plus -1ex \@minus -.2ex}%
+	{2.3ex \@plus.2ex}%
+	{\normalfont\Large\bfseries\centering}}
+\newcommand{\csubsection}[1]{%
+	\@csubsection*{#1}%
+	\addcontentsline{toc}{subsection}{#1}%
+}
+\makeatother
+
+%------------------- библиография -----------------------------------------------------
+\addbibresource{\jobname.bib}
+
+\newcommand{\fullbibtitle}{}
